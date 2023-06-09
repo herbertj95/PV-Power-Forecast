@@ -21,7 +21,10 @@ Errors:
 8-> Topic is not in the correct format ("ssop/#")
 9-> Could not convert dict into string for some reason
 """
+
 from paho.mqtt import client as mqtt_client
+import pandas as pd
+import json
 
 #Messges must be shoreter than 10000 carachters
 MAX_LEN_MESSAGE = 10000
@@ -73,7 +76,6 @@ def sendMessage(client,message,topic):
 
 
 #Main function used to publish topics
-
 def publish(message, client_id, topic = CLOUD_TOPIC , username=USERNAME, password=PASSWORD):
     
     if len(message) > MAX_LEN_MESSAGE:
@@ -99,10 +101,27 @@ def publish(message, client_id, topic = CLOUD_TOPIC , username=USERNAME, passwor
     return sendMessage(client,message,topic)
 
 
+#Function to create the format of the data to send
+def convertToJson(dict):
 
-'Sending a message'
-publish({'herbert':9}, 'Herbert ID')
+    keysList = list(dict.keys())
+    valuesList = list(dict.values())
 
+    dict = {
+        'prediction' : {
+            'keys' : keysList,
+            'values' : valuesList,
+        } 
+    }
+
+    return dict
+
+
+'Reading the data to send'
+data2 = pd.read_csv('./Forecast/Predictions_XGBOOST.csv')
+data2.astype(str)
+data2 = dict(zip(data2.Date, data2.Prediction.values))
+data2 = convertToJson(data2)
 
 data = {
     "credentials" : {
@@ -110,10 +129,8 @@ data = {
         "password" : "passss"
     },
     "dataType" : "AlgorithmInformation",
-    "data" : data2,  
+    "data" : data2
     }
 
-'In data 2 put the dictionary with the predictions to send'
-
-data2= dict(zip(df.index, df.power))
-
+'Sending the data as a message'
+publish(data, 'Herbert')
