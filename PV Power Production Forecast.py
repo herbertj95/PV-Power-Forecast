@@ -310,239 +310,239 @@ data_final['Power'] = np.where(data_final.Hour < 6, 0, data_final.Power)
 data_final['Power'] = np.where(data_final.Hour > 19, 0, data_final.Power)
 
 'Saving the final dataset'
-data_final.to_csv('Final Dataset PV.csv', encoding='utf-8', index=True)
-print('csv with the final dataset including date/time and lag features saved in the folder')
+# data_final.to_csv('Final Dataset PV.csv', encoding='utf-8', index=True)
+# print('csv with the final dataset including date/time and lag features saved in the folder')
 
 ###############################################################################################################################
 'Plots'
 ###############################################################################################################################
 
-#PV power production timeseries (after Pre-Processing)
-plt.plot(data_final.index, data_final.Power, color= 'darkcyan')
-plt.xlabel("Date", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks(alpha= 0.75, weight= "bold", rotation = 45)
-plt.yticks(alpha= 0.75, weight= "bold")
-plt.title("PV power production after Pre-Processing", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# #PV power production timeseries (after Pre-Processing)
+# plt.plot(data_final.index, data_final.Power, color= 'darkcyan')
+# plt.xlabel("Date", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks(alpha= 0.75, weight= "bold", rotation = 45)
+# plt.yticks(alpha= 0.75, weight= "bold")
+# plt.title("PV power production after Pre-Processing", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-#Irradiance
-plt.plot(data_final.index, data_final.Ghi, color= 'darkcyan')
-plt.xlabel("Date", alpha=0.75, weight="bold")
-plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
-plt.xticks(alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.title("Global horizontal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# #Irradiance
+# plt.plot(data_final.index, data_final.Ghi, color= 'darkcyan')
+# plt.xlabel("Date", alpha=0.75, weight="bold")
+# plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
+# plt.xticks(alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.title("Global horizontal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-plt.plot(data_final.index, data_final.Dhi, color= 'darkcyan')
-plt.xlabel("Date", alpha=0.75, weight="bold")
-plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
-plt.xticks(alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.title("Direct normal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# plt.plot(data_final.index, data_final.Dhi, color= 'darkcyan')
+# plt.xlabel("Date", alpha=0.75, weight="bold")
+# plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
+# plt.xticks(alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.title("Direct normal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-plt.plot(data_final.index, data_final.Dni, color= 'darkcyan')
-plt.xlabel("Date", alpha=0.75, weight="bold")
-plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
-plt.xticks(alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.title("Diffuse horizontal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# plt.plot(data_final.index, data_final.Dni, color= 'darkcyan')
+# plt.xlabel("Date", alpha=0.75, weight="bold")
+# plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
+# plt.xticks(alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.title("Diffuse horizontal irradiance", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-#Temperature
-plt.plot(data_final.index, data_final.AirTemp, color= 'darkcyan')
-plt.xlabel("Date", alpha=0.75, weight="bold")
-plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
-plt.xticks(alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.title("Air temperature", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# #Temperature
+# plt.plot(data_final.index, data_final.AirTemp, color= 'darkcyan')
+# plt.xlabel("Date", alpha=0.75, weight="bold")
+# plt.ylabel("Irradiance (W/m2)", alpha=0.75, weight="bold")
+# plt.xticks(alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.title("Air temperature", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-#Histogram of power
-non_zero= data_final[data_final.Power>0]
-plt.hist(non_zero.Power, bins=50, color= 'darkcyan')
-plt.xticks(alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.xlabel("Power (W)",alpha=0.75, weight="bold")
-plt.ylabel("Count",alpha=0.75, weight="bold")
-plt.title("PV power production histrogram", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# #Histogram of power
+# non_zero= data_final[data_final.Power>0]
+# plt.hist(non_zero.Power, bins=50, color= 'darkcyan')
+# plt.xticks(alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.xlabel("Power (W)",alpha=0.75, weight="bold")
+# plt.ylabel("Count",alpha=0.75, weight="bold")
+# plt.title("PV power production histrogram", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-#Hourly power production scatterplot
-sns.scatterplot(data= data_final, x='Hour', y= 'Power')
-plt.xticks(range(1,25),alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.xlabel("Hour",alpha=0.75, weight="bold")
-plt.ylabel("Power (W)",alpha=0.75, weight="bold")
-plt.title("Hourly PV power production", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# #Hourly power production scatterplot
+# sns.scatterplot(data= data_final, x='Hour', y= 'Power')
+# plt.xticks(range(1,25),alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.xlabel("Hour",alpha=0.75, weight="bold")
+# plt.ylabel("Power (W)",alpha=0.75, weight="bold")
+# plt.title("Hourly PV power production", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-#Mean hourly production barplot
-mean_per_hour= data_final.groupby('Hour')['Power'].agg(["mean"])
-plt.bar(mean_per_hour.index, mean_per_hour["mean"], color= 'darkcyan')
-plt.xticks(range(1,25),alpha=0.75, weight="bold")
-plt.yticks(alpha=0.75, weight="bold")
-plt.xlabel("Hour",alpha=0.75, weight="bold")
-plt.ylabel("Power (W)",alpha=0.75, weight="bold")
-plt.title("Mean hourly power production", alpha=0.75, weight="bold", loc="left", pad=10)
-plt.show()
+# #Mean hourly production barplot
+# mean_per_hour= data_final.groupby('Hour')['Power'].agg(["mean"])
+# plt.bar(mean_per_hour.index, mean_per_hour["mean"], color= 'darkcyan')
+# plt.xticks(range(1,25),alpha=0.75, weight="bold")
+# plt.yticks(alpha=0.75, weight="bold")
+# plt.xlabel("Hour",alpha=0.75, weight="bold")
+# plt.ylabel("Power (W)",alpha=0.75, weight="bold")
+# plt.title("Mean hourly power production", alpha=0.75, weight="bold", loc="left", pad=10)
+# plt.show()
 
-# Boxplots
-sns.boxplot(x= data_final.Hour, y= data_final.Power)
-plt.xlabel("Hour", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.title("Hourly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# # Boxplots
+# sns.boxplot(x= data_final.Hour, y= data_final.Power)
+# plt.xlabel("Hour", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.title("Hourly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-sns.boxplot(x= data_final.Dayofweek, y= data_final.Power)
-plt.xlabel("Day of Week", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks([0,1,2,3,4,5,6],['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
-plt.xticks(rotation=0)
-plt.title("Weekly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# sns.boxplot(x= data_final.Dayofweek, y= data_final.Power)
+# plt.xlabel("Day of Week", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks([0,1,2,3,4,5,6],['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+# plt.xticks(rotation=0)
+# plt.title("Weekly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-sns.boxplot(x= data_final.Month, y= data_final.Power)
-plt.xlabel("Month", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.title("Monthly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# sns.boxplot(x= data_final.Month, y= data_final.Power)
+# plt.xlabel("Month", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.title("Monthly distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-sns.boxplot(data= data_final, x= 'Season', y= 'Power')
-plt.xlabel("Season", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks([0,1,2,3],['Winter', 'Spring', 'Summer','Fall'])
-plt.title("Seasonal distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show() 
+# sns.boxplot(data= data_final, x= 'Season', y= 'Power')
+# plt.xlabel("Season", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks([0,1,2,3],['Winter', 'Spring', 'Summer','Fall'])
+# plt.title("Seasonal distribution of PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show() 
 
 ###############################################################################################################################
 'Clustering'
 ###############################################################################################################################
 
-'Identifying daily patterns of PV power production'
-df_clusters = data_final.copy()
-df_clusters = df_clusters.loc[:,['Power', 'Hour']]
-df_clusters.reset_index(inplace=True)
-df_clusters['Date'] = df_clusters['Date'].dt.date
+# 'Identifying daily patterns of PV power production'
+# df_clusters = data_final.copy()
+# df_clusters = df_clusters.loc[:,['Power', 'Hour']]
+# df_clusters.reset_index(inplace=True)
+# df_clusters['Date'] = df_clusters['Date'].dt.date
 
-df_pivot = df_clusters.pivot_table(index= 'Date', columns= 'Hour', values= 'Power')
-df_pivot = df_pivot.dropna()
-df_pivot.T.plot(legend= False, color= 'dodgerblue', alpha= 0.02)
-plt.xlabel('Hour', alpha=0.75, weight="bold")
-plt.ylabel('Power (W)', alpha=0.75, weight="bold")
-plt.title('Daily PV production profiles', alpha= 0.75, weight= "bold", loc= "left", pad= 10) 
-plt.show()
+# df_pivot = df_clusters.pivot_table(index= 'Date', columns= 'Hour', values= 'Power')
+# df_pivot = df_pivot.dropna()
+# df_pivot.T.plot(legend= False, color= 'dodgerblue', alpha= 0.02)
+# plt.xlabel('Hour', alpha=0.75, weight="bold")
+# plt.ylabel('Power (W)', alpha=0.75, weight="bold")
+# plt.title('Daily PV production profiles', alpha= 0.75, weight= "bold", loc= "left", pad= 10) 
+# plt.show()
 
-'Defining optimal number of clusters using different methods'
-X = df_pivot.values.copy() 
-sc = MinMaxScaler()
-X = sc.fit_transform(X)
+# 'Defining optimal number of clusters using different methods'
+# X = df_pivot.values.copy() 
+# sc = MinMaxScaler()
+# X = sc.fit_transform(X)
 
-n_cluster_list = np.arange(2,19).astype(int)
+# n_cluster_list = np.arange(2,19).astype(int)
 
-sillhoute_scores = []
-davies_score = []
-distortions = []
+# sillhoute_scores = []
+# davies_score = []
+# distortions = []
 
-for n_cluster in n_cluster_list:
-    kmeans = KMeans(n_clusters= n_cluster, init= 'k-means++', max_iter= 100, random_state= 0)
-    kmeans.fit_predict(X)
-    sillhoute_scores.append(silhouette_score(X, kmeans.labels_))
-    davies_score.append(davies_bouldin_score(X,kmeans.labels_))
-    distortions.append(kmeans.inertia_)
+# for n_cluster in n_cluster_list:
+#     kmeans = KMeans(n_clusters= n_cluster, init= 'k-means++', max_iter= 100, random_state= 0)
+#     kmeans.fit_predict(X)
+#     sillhoute_scores.append(silhouette_score(X, kmeans.labels_))
+#     davies_score.append(davies_bouldin_score(X,kmeans.labels_))
+#     distortions.append(kmeans.inertia_)
 
-plt.plot(n_cluster_list, distortions, color= 'dodgerblue')
-plt.title('SSE Scores Plot') 
-plt.show()
+# plt.plot(n_cluster_list, distortions, color= 'dodgerblue')
+# plt.title('SSE Scores Plot') 
+# plt.show()
 
-plt.plot(n_cluster_list,sillhoute_scores, color= 'dodgerblue')
-plt.title('Silhouete Scores Plot') 
-plt.show()
+# plt.plot(n_cluster_list,sillhoute_scores, color= 'dodgerblue')
+# plt.title('Silhouete Scores Plot') 
+# plt.show()
 
-plt.plot(n_cluster_list,davies_score, color= 'dodgerblue')
-plt.title('Davies-Bouldin Scores Plot') 
-plt.show()
+# plt.plot(n_cluster_list,davies_score, color= 'dodgerblue')
+# plt.title('Davies-Bouldin Scores Plot') 
+# plt.show()
 
-'Number of clusters'
-clusters = 3
+# 'Number of clusters'
+# clusters = 3
 
-kmeans = KMeans(n_clusters= clusters, random_state= 0)
-cluster_found = kmeans.fit_predict(X)
-cluster_found_sr = pd.Series(cluster_found, name= 'Cluster')
-df_pivot['Cluster']= cluster_found 
+# kmeans = KMeans(n_clusters= clusters, random_state= 0)
+# cluster_found = kmeans.fit_predict(X)
+# cluster_found_sr = pd.Series(cluster_found, name= 'Cluster')
+# df_pivot['Cluster']= cluster_found 
 
-# Plot of the median for each cluster
-df_pivot2 = df_pivot.copy()
-df_pivot2 = df_pivot2.set_index(cluster_found_sr, append= True )
+# # Plot of the median for each cluster
+# df_pivot2 = df_pivot.copy()
+# df_pivot2 = df_pivot2.set_index(cluster_found_sr, append= True )
 
-fig, ax = plt.subplots(1,1)
-color_list = ['dodgerblue','darkcyan','red'] 
-cluster_values = sorted(df_pivot2.index.get_level_values('Cluster').unique())
-for cluster, color in zip(cluster_values, color_list):
-    df_pivot2.xs(cluster, level= 1).T.plot(ax= ax, legend= False, alpha= 0.01, color= color)
-    df_pivot2.xs(cluster, level= 1).median().plot(ax= ax, color= color, alpha= 0.9, label= cluster)
+# fig, ax = plt.subplots(1,1)
+# color_list = ['dodgerblue','darkcyan','red'] 
+# cluster_values = sorted(df_pivot2.index.get_level_values('Cluster').unique())
+# for cluster, color in zip(cluster_values, color_list):
+#     df_pivot2.xs(cluster, level= 1).T.plot(ax= ax, legend= False, alpha= 0.01, color= color)
+#     df_pivot2.xs(cluster, level= 1).median().plot(ax= ax, color= color, alpha= 0.9, label= cluster)
 
-c_0 = mpatches.Patch(color= 'dodgerblue', label= 'Cluster 0')
-c_1 = mpatches.Patch(color= 'darkcyan', label= 'Cluster 1')
-c_2 = mpatches.Patch(color= 'red', label= 'Cluster 2')
+# c_0 = mpatches.Patch(color= 'dodgerblue', label= 'Cluster 0')
+# c_1 = mpatches.Patch(color= 'darkcyan', label= 'Cluster 1')
+# c_2 = mpatches.Patch(color= 'red', label= 'Cluster 2')
 
-plt.xlabel("Hour", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11)
-plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
-plt.legend(handles= [c_0, c_1, c_2])
-plt.title('Daily PV power production for ' +str(clusters)+ ' clusters', alpha= 0.75, weight= "bold", loc= "left", pad= 10) 
-plt.show()
+# plt.xlabel("Hour", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11)
+# plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
+# plt.legend(handles= [c_0, c_1, c_2])
+# plt.title('Daily PV power production for ' +str(clusters)+ ' clusters', alpha= 0.75, weight= "bold", loc= "left", pad= 10) 
+# plt.show()
 
-# Plot of the profiles in each cluster
-for cluster_id in sorted(df_pivot.Cluster.unique()):
-    df_cluster = df_pivot.loc[df_pivot.Cluster == cluster_id].copy()
-    df_cluster.drop(columns= ['Cluster'], inplace= True)
-    df_cluster.T.plot(legend= None)
-    plt.title(f'Cluster {cluster_id}', alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-    plt.xlabel('Hour', alpha= 0.75, weight= "bold")
-    plt.ylabel('Power (W)', alpha= 0.75, weight= "bold")
-    plt.show()
+# # Plot of the profiles in each cluster
+# for cluster_id in sorted(df_pivot.Cluster.unique()):
+#     df_cluster = df_pivot.loc[df_pivot.Cluster == cluster_id].copy()
+#     df_cluster.drop(columns= ['Cluster'], inplace= True)
+#     df_cluster.T.plot(legend= None)
+#     plt.title(f'Cluster {cluster_id}', alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+#     plt.xlabel('Hour', alpha= 0.75, weight= "bold")
+#     plt.ylabel('Power (W)', alpha= 0.75, weight= "bold")
+#     plt.show()
     
-'Including clusters as a column (feature) in the dataframe'
-cluster_column = df_pivot.loc[:, ['Cluster']]
-cluster_column.index = pd.to_datetime(cluster_column.index)
+# 'Including clusters as a column (feature) in the dataframe'
+# cluster_column = df_pivot.loc[:, ['Cluster']]
+# cluster_column.index = pd.to_datetime(cluster_column.index)
 
-data_final['Cluster'] = cluster_column
-data_final.fillna(method= 'ffill', inplace= True)
-data_final = data_final.astype({"Cluster": int})
+# data_final['Cluster'] = cluster_column
+# data_final.fillna(method= 'ffill', inplace= True)
+# data_final = data_final.astype({"Cluster": int})
 
-# Plots of clustering
-fig, ax = plt.subplots()
-data_final.groupby(['Dayofweek', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
-plt.xlabel("Day of Week", alpha= 0.75, weight= "bold")
-plt.ylabel("Count", alpha= 0.75, weight= "bold")
-plt.xticks([0,1,2,3,4,5,6],['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
-plt.xticks(rotation=0)
-ax.legend(ncol=3, loc= 'best')
-plt.title("Clusters distribution for day of week", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# # Plots of clustering
+# fig, ax = plt.subplots()
+# data_final.groupby(['Dayofweek', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
+# plt.xlabel("Day of Week", alpha= 0.75, weight= "bold")
+# plt.ylabel("Count", alpha= 0.75, weight= "bold")
+# plt.xticks([0,1,2,3,4,5,6],['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+# plt.xticks(rotation=0)
+# ax.legend(ncol=3, loc= 'best')
+# plt.title("Clusters distribution for day of week", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-fig, ax = plt.subplots()
-data_final.groupby(['Month', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
-plt.xlabel("Month", alpha= 0.75, weight= "bold")
-plt.ylabel("Count", alpha= 0.75, weight= "bold")
-plt.xticks(rotation=0)
-ax.legend(ncol=3, loc= 'best')
-plt.title("Clusters distribution for month", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# fig, ax = plt.subplots()
+# data_final.groupby(['Month', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
+# plt.xlabel("Month", alpha= 0.75, weight= "bold")
+# plt.ylabel("Count", alpha= 0.75, weight= "bold")
+# plt.xticks(rotation=0)
+# ax.legend(ncol=3, loc= 'best')
+# plt.title("Clusters distribution for month", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
-fig, ax = plt.subplots()
-data_final.groupby(['Season', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
-plt.xlabel("Season", alpha= 0.75, weight= "bold")
-plt.ylabel("Count", alpha= 0.75, weight= "bold")
-plt.xticks([0,1,2,3],['Winter', 'Spring', 'Summer','Fall'])
-plt.xticks(rotation=0)
-ax.legend(ncol=3, loc= 'best')
-plt.title("Clusters distribution for season", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# fig, ax = plt.subplots()
+# data_final.groupby(['Season', 'Cluster']).size().unstack().plot(ax=ax, kind='bar', stacked=False, alpha=0.7)
+# plt.xlabel("Season", alpha= 0.75, weight= "bold")
+# plt.ylabel("Count", alpha= 0.75, weight= "bold")
+# plt.xticks([0,1,2,3],['Winter', 'Spring', 'Summer','Fall'])
+# plt.xticks(rotation=0)
+# ax.legend(ncol=3, loc= 'best')
+# plt.title("Clusters distribution for season", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
 ###############################################################################################################################
 'Feature engineering/selection'
@@ -553,23 +553,23 @@ print('######################################Feature Selection##################
 data_final = cyclical_features(data_final)
 
 'Correlation matrix'
-corr = data_final.corr()[['Power']].sort_values(by= 'Power', ascending= False).round(2)
+# corr = data_final.corr()[['Power']].sort_values(by= 'Power', ascending= False).round(2)
 
-# Heatmap features correlation with Power
-fig = plt.subplots()
-heatmap = sns.heatmap(corr, vmin= -1, vmax= 1, annot= True, cmap= 'BrBG')
-heatmap.set_title('Features correlation with PV power production', alpha= 0.75, weight= "bold", pad= 10)
-plt.xticks(alpha= 0.75, weight= "bold")
-plt.yticks(alpha= 0.75, weight= "bold")
-plt.show()
+# # Heatmap features correlation with Power
+# fig = plt.subplots()
+# heatmap = sns.heatmap(corr, vmin= -1, vmax= 1, annot= True, cmap= 'BrBG')
+# heatmap.set_title('Features correlation with PV power production', alpha= 0.75, weight= "bold", pad= 10)
+# plt.xticks(alpha= 0.75, weight= "bold")
+# plt.yticks(alpha= 0.75, weight= "bold")
+# plt.show()
 
-# Bar plot of features correlation with Power
-plt.bar(corr[1:].index, corr[1:].Power, color= 'darkcyan')
-plt.xticks(rotation= 90, alpha= 0.75, weight= "bold")
-plt.yticks(np.arange(-1, 1.1, step= 0.1), alpha=0.75,  weight= "bold")
-plt.ylabel('Correlation', alpha= 0.75, weight= "bold")
-plt.title("Features correlation with PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
-plt.show()
+# # Bar plot of features correlation with Power
+# plt.bar(corr[1:].index, corr[1:].Power, color= 'darkcyan')
+# plt.xticks(rotation= 90, alpha= 0.75, weight= "bold")
+# plt.yticks(np.arange(-1, 1.1, step= 0.1), alpha=0.75,  weight= "bold")
+# plt.ylabel('Correlation', alpha= 0.75, weight= "bold")
+# plt.title("Features correlation with PV power production", alpha= 0.75, weight= "bold", loc= "left", pad= 10)
+# plt.show()
 
 'Array containing the names of all features available'
 all_features = data_final.columns.values.tolist()
@@ -617,40 +617,40 @@ X = df_features[:, [x for x in range(1, len(all_features)+1)]]
 'Column[30] = Minute_x'
 'Column[31] = Minute_y'
 
-'Filter method - K Best'
-features1= SelectKBest(k=15, score_func=f_regression)
-features2= SelectKBest(k=15, score_func=mutual_info_regression)
+# 'Filter method - K Best'
+# features1= SelectKBest(k=15, score_func=f_regression)
+# features2= SelectKBest(k=15, score_func=mutual_info_regression)
 
-fit1= features1.fit(X,Y)
-fit2= features2.fit(X,Y)
-filter1= all_features[fit1.get_support()]
-filter2= all_features[fit2.get_support()]
+# fit1= features1.fit(X,Y)
+# fit2= features2.fit(X,Y)
+# filter1= all_features[fit1.get_support()]
+# filter2= all_features[fit2.get_support()]
 
-print('Best 15 features - Filter method (f_Regression)')
-print(filter1)
-print('Best 15 features - Filter method (Mutual Information)')
-print(filter2)
+# print('Best 15 features - Filter method (f_Regression)')
+# print(filter1)
+# print('Best 15 features - Filter method (Mutual Information)')
+# print(filter2)
 
-'Feature Importance by model'
-#Random Forest
-model2 = RandomForestRegressor()
-fit2 = model2.fit(X, Y)
-importance2 = pd.DataFrame(data= {'Feature': all_features, 'Score': model2.feature_importances_})
-importance2 = importance2.sort_values(by= ['Score'], ascending= False)
-importance2.set_index('Feature', inplace= True)
+# 'Feature Importance by model'
+# #Random Forest
+# model2 = RandomForestRegressor()
+# fit2 = model2.fit(X, Y)
+# importance2 = pd.DataFrame(data= {'Feature': all_features, 'Score': model2.feature_importances_})
+# importance2 = importance2.sort_values(by= ['Score'], ascending= False)
+# importance2.set_index('Feature', inplace= True)
 
-print('Best 15 features - RF')
-print(importance2.head(15))
+# print('Best 15 features - RF')
+# print(importance2.head(15))
 
-#XGBOOST
-model3 = xgb.XGBRegressor()
-fit3 = model3.fit(X, Y)
-importance3 = pd.DataFrame(data= {'Feature': all_features, 'Score': model3.feature_importances_})
-importance3 = importance3.sort_values(by= ['Score'], ascending= False)
-importance3.set_index('Feature', inplace= True)
+# #XGBOOST
+# model3 = xgb.XGBRegressor()
+# fit3 = model3.fit(X, Y)
+# importance3 = pd.DataFrame(data= {'Feature': all_features, 'Score': model3.feature_importances_})
+# importance3 = importance3.sort_values(by= ['Score'], ascending= False)
+# importance3.set_index('Feature', inplace= True)
 
-print('Best 15 features - XGBOOST')
-print(importance3.head(15))
+# print('Best 15 features - XGBOOST')
+# print(importance3.head(15))
 
 ###############################################################################################################################
 'Forecasting Models'
@@ -753,56 +753,56 @@ plt.legend(['Train','Test'], frameon= False, loc= 'upper center', ncol= 2)
 plt.title("Train - Test Split", alpha=0.75, weight="bold", pad=10, loc="left")
 plt.show()
 
-###############################################################################################################################
-'Implementing Random Forest model'
-print('###################################Random Forest####################################')
-###############################################################################################################################
+# ###############################################################################################################################
+# 'Implementing Random Forest model'
+# print('###################################Random Forest####################################')
+# ###############################################################################################################################
 
-# Model
-parameters_RF = {'bootstrap': True,
-              'min_samples_leaf': 3,
-              'n_estimators': 200, 
-              'min_samples_split': 7,
-              'max_depth': 30,
-              'max_leaf_nodes': None,
-              'random_state': 18}
+# # Model
+# parameters_RF = {'bootstrap': True,
+#               'min_samples_leaf': 3,
+#               'n_estimators': 200, 
+#               'min_samples_split': 7,
+#               'max_depth': 30,
+#               'max_leaf_nodes': None,
+#               'random_state': 18}
 
-reg_RF = RandomForestRegressor(**parameters_RF)
-reg_RF.fit(xtrain, np.ravel(ytrain))
+# reg_RF = RandomForestRegressor(**parameters_RF)
+# reg_RF.fit(xtrain, np.ravel(ytrain))
 
-# Feature importance
-importances = reg_RF.feature_importances_
-sorted_index = np.argsort(importances)[::-1]
-sorted_index_top = sorted_index[:len(FEATURE_COLUMNS)]
-x = range(len(sorted_index_top))
+# # Feature importance
+# importances = reg_RF.feature_importances_
+# sorted_index = np.argsort(importances)[::-1]
+# sorted_index_top = sorted_index[:len(FEATURE_COLUMNS)]
+# x = range(len(sorted_index_top))
 
-labels = np.array(FEATURE_COLUMNS)[sorted_index_top]
-plt.bar(x, importances[sorted_index_top], tick_label= labels)
-plt.title("Feature importance RF")
-plt.xticks(rotation= 45)
-plt.show()
+# labels = np.array(FEATURE_COLUMNS)[sorted_index_top]
+# plt.bar(x, importances[sorted_index_top], tick_label= labels)
+# plt.title("Feature importance RF")
+# plt.xticks(rotation= 45)
+# plt.show()
 
-# Predictions and pos-processing
-df_RF = pd.DataFrame(reg_RF.predict(xtest), columns= ['Prediction'], index= xtest.index)
-df_RF['Real'] = ytest
-df_RF['Prediction'] = np.where(df_RF['Prediction'] < 0, 0 , df_RF['Prediction'])
-df_RF['Prediction'] = np.where((df_RF.index.hour < 6) | (df_RF.index.hour > 19) , 0, df_RF['Prediction'])
+# # Predictions and pos-processing
+# df_RF = pd.DataFrame(reg_RF.predict(xtest), columns= ['Prediction'], index= xtest.index)
+# df_RF['Real'] = ytest
+# df_RF['Prediction'] = np.where(df_RF['Prediction'] < 0, 0 , df_RF['Prediction'])
+# df_RF['Prediction'] = np.where((df_RF.index.hour < 6) | (df_RF.index.hour > 19) , 0, df_RF['Prediction'])
 
-# Errors
-MAE_RF, RMSE_RF, normRMSE_RF, R2_RF = compute_errors(df_RF, ytest.Power.max())
+# # Errors
+# MAE_RF, RMSE_RF, normRMSE_RF, R2_RF = compute_errors(df_RF, ytest.Power.max())
 
-print(f'RF - Mean Absolute Error (MAE): {MAE_RF:.2f} W')
-print(f'RF - Root Mean Square Error (RMSE): {RMSE_RF:.2f} W')
-print(f'RF - Normalized RMSE: {normRMSE_RF:.2f} %')
-print(f'RF - R square: {R2_RF:.2f}')
+# print(f'RF - Mean Absolute Error (MAE): {MAE_RF:.2f} W')
+# print(f'RF - Root Mean Square Error (RMSE): {RMSE_RF:.2f} W')
+# print(f'RF - Normalized RMSE: {normRMSE_RF:.2f} %')
+# print(f'RF - R square: {R2_RF:.2f}')
 
-# Plots real vs predicted
-result_plots(df_RF, 'Random Forest')
+# # Plots real vs predicted
+# result_plots(df_RF, 'Random Forest')
 
-#Saving the predictions
-predictions_RF= df_RF[['Prediction']]
-predictions_RF.to_csv('./Forecast/Predictions_RF.csv', encoding='utf-8', index=True)
-print('csv with the predictions saved')
+# #Saving the predictions
+# predictions_RF= df_RF[['Prediction']]
+# predictions_RF.to_csv('./Forecast/Predictions_RF.csv', encoding='utf-8', index=True)
+# print('csv with the predictions saved')
 
 ###############################################################################################################################
 'Implementing XGBOOST model'
@@ -859,93 +859,93 @@ predictions_XGBOOST= df_xgboost[['Prediction']]
 predictions_XGBOOST.to_csv('./Forecast/Predictions_XGBOOST.csv', encoding='utf-8', index=True)
 print('csv with the predictions saved')
 
-###############################################################################################################################
-'Future Forecasting'
-print('##############################Future Forecasting##############################')
-###############################################################################################################################
+# ###############################################################################################################################
+# 'Future Forecasting'
+# print('##############################Future Forecasting##############################')
+# ###############################################################################################################################
 
-'Dividing all data between features (X) and target variable (y)'
-X_all = data_final.loc[:, FEATURE_COLUMNS].copy()
-y_all = data_final.loc[:, FORECAST_COLUMN].copy()
+# 'Dividing all data between features (X) and target variable (y)'
+# X_all = data_final.loc[:, FEATURE_COLUMNS].copy()
+# y_all = data_final.loc[:, FORECAST_COLUMN].copy()
 
-'XGBOOST model training with all data'
-parameters_XGBOOST = {'n_estimators' : 500,
-                      'learning_rate' : 0.01,
-                      'verbosity' : 0,
-                      'n_jobs' : -1,
-                      'gamma' : 0,
-                      'min_child_weight' : 1,
-                      'max_delta_step' : 0,
-                      'subsample' : 0.7,
-                      'colsample_bytree' : 1,
-                      'colsample_bylevel' : 1,
-                      'colsample_bynode' : 1,
-                      'reg_alpha' : 0,
-                      'reg_lambda' : 1,
-                      'random_state' : 18,
-                      'objective' : 'reg:linear',
-                      'booster' : 'gbtree'}
+# 'XGBOOST model training with all data'
+# parameters_XGBOOST = {'n_estimators' : 500,
+#                       'learning_rate' : 0.01,
+#                       'verbosity' : 0,
+#                       'n_jobs' : -1,
+#                       'gamma' : 0,
+#                       'min_child_weight' : 1,
+#                       'max_delta_step' : 0,
+#                       'subsample' : 0.7,
+#                       'colsample_bytree' : 1,
+#                       'colsample_bylevel' : 1,
+#                       'colsample_bynode' : 1,
+#                       'reg_alpha' : 0,
+#                       'reg_lambda' : 1,
+#                       'random_state' : 18,
+#                       'objective' : 'reg:linear',
+#                       'booster' : 'gbtree'}
 
-reg_XGBOOST_future = xgb.XGBRegressor(**parameters_XGBOOST)
-reg_XGBOOST_future.fit(X_all, y_all, 
-                       eval_set= [(X_all, y_all)],
-                       verbose= 100)
+# reg_XGBOOST_future = xgb.XGBRegressor(**parameters_XGBOOST)
+# reg_XGBOOST_future.fit(X_all, y_all, 
+#                        eval_set= [(X_all, y_all)],
+#                        verbose= 100)
 
-'INPUT the number of days to forecast in the future'
-days_future = 1
+# 'INPUT the number of days to forecast in the future'
+# days_future = 1
 
-'Creating future dataframe'
-df_future = pd.DataFrame(index=pd.date_range(start= data_final.index[-1] + timedelta(minutes = 15), freq= '15min', periods= 96 * days_future))
-df_future['isFuture'] = True
+# 'Creating future dataframe'
+# df_future = pd.DataFrame(index=pd.date_range(start= data_final.index[-1] + timedelta(minutes = 15), freq= '15min', periods= 96 * days_future))
+# df_future['isFuture'] = True
 
-power_15min.dropna(axis= 0, subset= ['Power'], inplace= True)
-power_15min['isFuture'] = False
+# power_15min.dropna(axis= 0, subset= ['Power'], inplace= True)
+# power_15min['isFuture'] = False
 
-data_future = pd.concat([power_15min, df_future])
-data_future = create_features(data_future)
-data_future = lag_features(data_future,[1,7,30], 'Power')
-data_future = cyclical_features(data_future)
-data_future = pd.merge(data_future, meteo_15min, left_index= True, right_index= True)
+# data_future = pd.concat([power_15min, df_future])
+# data_future = create_features(data_future)
+# data_future = lag_features(data_future,[1,7,30], 'Power')
+# data_future = cyclical_features(data_future)
+# data_future = pd.merge(data_future, meteo_15min, left_index= True, right_index= True)
 
-test_future = data_future.query('isFuture').loc[:, FEATURE_COLUMNS]
+# test_future = data_future.query('isFuture').loc[:, FEATURE_COLUMNS]
 
-'Generating the predictions and pos-processing'
-xgboost_future = pd.DataFrame(reg_XGBOOST_future.predict(test_future), columns= ['Prediction'], index= test_future.index)
-xgboost_future['Prediction'] = np.where(xgboost_future['Prediction'] < 0, 0 , xgboost_future['Prediction'])
-xgboost_future['Prediction'] = np.where((xgboost_future.index.hour < 6) | (xgboost_future.index.hour > 19) , 0, xgboost_future['Prediction'])
+# 'Generating the predictions and pos-processing'
+# xgboost_future = pd.DataFrame(reg_XGBOOST_future.predict(test_future), columns= ['Prediction'], index= test_future.index)
+# xgboost_future['Prediction'] = np.where(xgboost_future['Prediction'] < 0, 0 , xgboost_future['Prediction'])
+# xgboost_future['Prediction'] = np.where((xgboost_future.index.hour < 6) | (xgboost_future.index.hour > 19) , 0, xgboost_future['Prediction'])
 
-# Plot of future forecast
-fig, ax = plt.subplots()
-ax.plot(xgboost_future.Prediction)
-plt.xlabel("Date", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11, rotation = 45)
-plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
-plt.title(f"Future forecast: {days_future} day(s)", alpha= 0.75, weight= "bold", pad= 10, loc= "left")
-locator = AutoDateLocator()
-date_form = mdates.ConciseDateFormatter(locator)
-ax.xaxis.set_major_formatter(date_form)
-fig.autofmt_xdate()
-plt.show()
+# # Plot of future forecast
+# fig, ax = plt.subplots()
+# ax.plot(xgboost_future.Prediction)
+# plt.xlabel("Date", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11, rotation = 45)
+# plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
+# plt.title(f"Future forecast: {days_future} day(s)", alpha= 0.75, weight= "bold", pad= 10, loc= "left")
+# locator = AutoDateLocator()
+# date_form = mdates.ConciseDateFormatter(locator)
+# ax.xaxis.set_major_formatter(date_form)
+# fig.autofmt_xdate()
+# plt.show()
 
-# Plot of last past_days (defined) + future forecast
-past_days = 7
-fig, ax = plt.subplots()
-ax.plot(xgboost_future.Prediction)
-ax.plot(data_future.Power[-96 * (past_days + days_future) : -96* days_future])
-plt.xlabel("Date", alpha= 0.75, weight= "bold")
-plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
-plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11)
-plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
-plt.title(f"PV Power production of last {past_days} day(s) + forecast obtained", alpha= 0.75, weight= "bold", pad= 10, loc= "left")
-locator = AutoDateLocator()
-date_form = mdates.ConciseDateFormatter(locator)
-ax.xaxis.set_major_formatter(date_form)
-plt.show()
+# # Plot of last past_days (defined) + future forecast
+# past_days = 7
+# fig, ax = plt.subplots()
+# ax.plot(xgboost_future.Prediction)
+# ax.plot(data_future.Power[-96 * (past_days + days_future) : -96* days_future])
+# plt.xlabel("Date", alpha= 0.75, weight= "bold")
+# plt.ylabel("Power (W)", alpha= 0.75, weight= "bold")
+# plt.xticks(alpha= 0.75, weight= "bold", fontsize= 11)
+# plt.yticks(alpha= 0.75, weight= "bold", fontsize= 11)
+# plt.title(f"PV Power production of last {past_days} day(s) + forecast obtained", alpha= 0.75, weight= "bold", pad= 10, loc= "left")
+# locator = AutoDateLocator()
+# date_form = mdates.ConciseDateFormatter(locator)
+# ax.xaxis.set_major_formatter(date_form)
+# plt.show()
 
-'Saving the future predictions'
-xgboost_future.to_csv('./Forecast/Future_Predictions_XGBOOST.csv', encoding='utf-8', index=True)
-print('csv with the predictions saved')
+# 'Saving the future predictions'
+# xgboost_future.to_csv('./Forecast/Future_Predictions_XGBOOST.csv', encoding='utf-8', index=True)
+# print('csv with the predictions saved')
 
 ###############################################################################################################################
 # 'Cross Validation'
